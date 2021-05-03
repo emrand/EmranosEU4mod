@@ -15168,3 +15168,45 @@ ICE_ideas = {
 		culture_conversion_cost = -0.2
 	}
 }
+
+UGA_ideas = {
+	start = {
+		land_morale = 0.20
+		diplomatic_reputation = 1
+	}
+	
+	bonus = {
+		administrative_efficiency = 0.05
+	}	
+
+	trigger = {
+		tag = UGA
+	}
+	free = yes
+	
+	UGA_amogus = {
+		colonists = 1
+		reform_progress_growth = 0.15
+	}
+	UGA_buga = {
+		 global_trade_goods_size_modifier = 0.15
+	}
+	UGA_sus = {
+		trade_efficiency = 0.15		
+	}
+	UGA_zaaa = {
+		hostile_attrition = 1
+	}
+	UGA_lesgo = {
+		manpower_recovery_speed = 0.2
+	    global_manpower_modifier = 0.30
+	}
+	UGA_natural_builders = {
+		build_cost = -0.1
+		development_cost = -0.15
+	}
+	UGA_national_army = {
+		discipline = 0.10
+	}
+}
+

@@ -1,0 +1,121 @@
+country_decisions = {
+
+	uganda_nation = {
+		major = yes
+		potential = {
+		    tag = BUG
+			religion = shamanism
+		}
+		provinces_to_highlight = {
+		  OR = {
+			 province_id = 4064
+			 province_id = 4062
+			 province_id = 4065
+			 province_id = 4074
+			 province_id = 4066
+			 province_id = 4063
+			 province_id = 4067
+			 province_id = 4061
+			 province_id = 4068
+			 province_id = 4069
+			 province_id = 4071
+			 province_id = 4070
+			 province_id = 4072
+		    }
+			OR = {
+				NOT = { owned_by = ROOT }
+				NOT = { is_core = ROOT }
+			}
+		}
+		allow = {
+			is_free_or_tributary_trigger = yes
+			is_nomad = no
+			is_at_war = no
+			is_subject = no
+			religion_group = shamanism
+			owns_core_province = 4064          #Buganda
+            owns_core_province = 4062
+			owns_core_province = 4065
+			owns_core_province = 4074
+			owns_core_province = 4066
+			owns_core_province = 4063
+			owns_core_province = 4067
+			owns_core_province = 4061
+			owns_core_province = 4068
+			owns_core_province = 4069
+			owns_core_province = 4071
+			owns_core_province = 4070
+			owns_core_province = 4072			
+		}
+		effect = {
+		change_tag = UGA
+			4064 = {
+				move_capital_effect = yes
+			}
+			kongo_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { owner = { has_country_flag = fulani_jihad_state } }
+					OR = {
+						religion = sunni
+						religion = shamanism
+					}
+				}
+				add_permanent_claim = UGA
+			}
+			east_africa_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { owner = { has_country_flag = fulani_jihad_state } }
+					OR = {
+						religion = sunni
+						religion = shamanism
+					}
+				}
+				add_permanent_claim = UGA
+			}
+			central_africa_region = {
+				limit = {
+					NOT = { owned_by = ROOT }
+					NOT = { owner = { has_country_flag = fulani_jihad_state } }
+					OR = {
+						religion = sunni
+						religion = shamanism
+					}
+				}
+				add_permanent_claim = UGA
+			}
+			add_prestige = 50
+			add_piety = 0.25
+			add_adm_power = 100
+			add_dip_power = 100
+			add_mil_power = 100
+			change_tag = UGA
+			if = {
+				limit = {
+					NOT = { government = monarchy }
+					is_revolutionary = no
+				}
+				change_government_to_monarchy = yes
+			}
+			if = {
+				limit = { is_revolutionary = no }
+				add_government_reform = feudal_theocracy
+			}
+			remove_non_electors_emperors_from_empire_effect = yes
+			if = {
+				limit = { NOT = { government_rank = 2 } }
+				set_government_rank = 2
+			}
+			if = {
+				limit = { has_custom_ideas = no }
+				country_event = { id = ideagroups.1 } #Swap Ideas
+			}
+			set_country_flag = formed_uganda_flag
+		}
+		ai_importance = 400
+		ai_will_do = {
+			factor = 100
+		}
+	}
+}
