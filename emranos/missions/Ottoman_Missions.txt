@@ -374,7 +374,7 @@ tur_conquest_of_middle_east = {
 					NOT = { is_core = 2302 }
 					NOT = { owns = 2302 }
 				}
-				add_core = 2302
+				add_permanent_claim = 2302
 			}
 			kastamonu_area = {
 				limit = {
