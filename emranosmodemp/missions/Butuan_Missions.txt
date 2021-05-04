@@ -1,0 +1,43 @@
+rzw_birth_of_an_empire = {
+    slot = 1
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	defeat_the_mutapan_empire = {
+	    icon = mission_conquer_50_development
+		required_missions = {  } #None
+		completed_by = 1453.5.30
+		trigger = {
+			owns = 1187
+			owns = 1191
+			owns = 1190
+		}
+		provinces_to_highlight = {
+			province_id = 1187
+			province_id = 1191
+			province_id = 1190
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+			set_country_flag = relocated_capital_constantinople
+			set_global_flag = greek_need_restore_constantinople
+			add_stability = 1
+			add_core = 1187
+			add_core = 1191
+			add_core = 1190
+				1185 = {
+					add_base_tax = 3
+					add_base_production = 3
+					add_base_manpower = 3
+				}
+			
+			set_government_rank = 3
+		}
+	}
+	
+}

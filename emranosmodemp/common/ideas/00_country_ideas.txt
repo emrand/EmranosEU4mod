@@ -1147,7 +1147,7 @@ HAB_ideas = {
 	}
 	
 	bonus = {
-		heir_chance = 0.50
+		global_trade_goods_size_modifier = 0.1
 	}
 	
 	trigger = {
@@ -1167,7 +1167,7 @@ HAB_ideas = {
 	}
 	military_border = {
 		global_garrison_growth = 0.15
-		fort_maintenance_modifier = -0.10
+		defensiveness = 0.33
 	}
 	fugger_banks = {
 		inflation_reduction = 0.05
@@ -1175,16 +1175,18 @@ HAB_ideas = {
 	}
 	habsburg_dominance = {
 		diplomatic_reputation = 2
+		diplomatic_upkeep = 1
 	}
 	edict_of_restitution = {
 		global_missionary_strength = 0.02
 	}
 	austrian_court = {
-		diplomatic_upkeep = 1
+		mercenary_discipline = 0.05
+		mercenary_manpower = 0.33
 	}
 	hofkriegsrat = {
 		reinforce_speed = 0.3
-		discipline = 0.03
+		discipline = 0.05
 	}
 }
 
@@ -1429,8 +1431,8 @@ HUN_ideas = {
 
 JAP_ideas = {
 	start = {
-		stability_cost_modifier = -0.1
-		discipline = 0.05
+		naval_morale = 0.15
+		galley_power = 0.10
 	}
 	
 	bonus = {
@@ -1443,10 +1445,10 @@ JAP_ideas = {
 	free = yes
 	
 	jap_unification_under_the_emperor = {
-		global_unrest = -2
+		navy_tradition = 1
 	}
 	reformed_land_holding = {
-		global_manpower_modifier = 0.2
+		discipline = 0.05
 	}
 	jap_modernization = {
 		technology_cost = -0.05
@@ -1456,13 +1458,14 @@ JAP_ideas = {
 		ship_durability = 0.1
 	}
 	jap_land_of_the_rising_sun = {
-		prestige = 1
+		global_trade_goods_size_modifier = 0.1
 	}
 	jap_kaitakudan = {
 		global_colonial_growth = 20
 	}
 	jap_great_power_diplomacy = {
-		ae_impact = -0.15
+		leader_naval_manuever = 1
+		blockade_efficiency = 0.33
 	}
 }
 

@@ -1516,64 +1516,27 @@ country_event = {
 	}
 }
 
-######################################### HOLLAND RULER EVENT WIP
-########### country_event = {
-	id = flavor_hol.25
-	title = flavor_hol.25.t
-	desc = flavor_hol.25.d
-	picture = ARTWORK_eventPicture
-	
-	is_triggered_only = yes
-	fire_only_once = yes
-	
-	trigger = {
-		tag = HOL
-		is_lesser_in_union = yes
-		is_year = 1450
-	}
-	
-	mean_time_to_happen = {
-		days = 1
-	}
-	
-			option = {
-		name = flavor_hol.25.a 
-		trigger = {
-			BUR = {
-				ai = yes
-				was_player = no
-			}
-		}
-		ai_chance = { 
-			factor = 80 
-		}
-		country_event = {
-			id = flavor_hol.26
-		}
-	}
-		option = {
-		name = flavor_Hol.25.b
-		ai_chance = { 
-			factor = 20
-		}
-        add_prestige = -100
-		
-    }
-}
-	
-################################
-########### country_event = {
-	id = flavor_hol.26
-	title = flavor_pol.26.t
-	desc = flavor_pol.26.d
+country_event = {
+id = flavor_hol.26
+title = flavor_hol.26.t
+desc = flavor_hol.26.d
 
 	picture = LIBERUM_VETO_eventPicture
 	
 	fire_only_once = yes
-	is_triggered_only = yes
 
 	trigger = {
-		always = yes
+		is_lesser_in_union = yes
+		tag = HOL
+		has_ruler = "Charles I"
+		HOL = {
+		   ai = no
+		   }
+	    
+	}
+	
+	mean_time_to_happen {
+	    days = 1
 	}
 	
 	option = {
@@ -1588,6 +1551,12 @@ country_event = {
 			claim = 100
 			culture = dutch
 		}
+	}
+	
+	option = {
+	    name = flavor_hol.26.b
+		add_prestige = -50
+		add_stability = -1
 	}
 }
 	
