@@ -2,5 +2,5 @@ version="1.30.6"
 tags={
 	"Fixes"
 }
-name="emranosmod"
+name="emperor w leviathan ideas"
 supported_version="1.30.6"
