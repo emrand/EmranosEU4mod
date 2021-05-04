@@ -1,0 +1,21 @@
+name = "1st Swedish-Danish War"
+
+war_goal = {
+	type = take_capital_personal_union
+	casus_belli = cb_restore_personal_union
+	tag = SWE
+}
+
+1436.1.1 = {
+	add_attacker = DAN
+	add_attacker = NOV
+	add_defender = SWE
+	add_defender = NOR
+}
+
+1444.10.6 = {
+	rem_attacker = DAN
+	rem_attacker = NOV
+	rem_defender = SWE
+	rem_defender = NOR
+}
