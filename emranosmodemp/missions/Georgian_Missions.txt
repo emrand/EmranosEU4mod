@@ -1,0 +1,440 @@
+emranos_georgia_leftcolumn = {
+    slot = 1
+	generic = no
+	ai = no
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+
+    emranos_georgia_trebizond = {
+		icon = mission_eastern_european_city
+		required_missions = {  } #NONE
+		position = 1
+
+		provinces_to_highlight = {
+			province_id = 330
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+
+		trigger = {
+			330 = {
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		effect = {
+			if = {
+				limit = {
+					330 = {
+						NOT = {
+							OR = {
+								has_building = fort_15th
+								has_building = fort_16th
+								has_building = fort_17th
+								has_building = fort_18th
+							}
+						}
+					}
+				}
+				330 = {
+					add_building = fort_15th
+				}
+			}
+			330 = {
+				add_province_modifier = {
+					name = "fortified_trabzon"
+					duration = -1
+				}
+				
+			}
+			erzurum_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	conquer_erzurum = {
+	    icon = mission_conquer_50_development
+		required_missions = { 
+		emranos_georgia_trebizond
+	    }
+		trigger = {
+			erzurum_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 330
+			province_id = 331
+			province_id = 2035
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+			armenia_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	conquer_armenia = {
+	    icon = mission_unite_home_region 
+		required_missions = { 
+		conquer_erzurum
+	    }
+		trigger = {
+			armenia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 4302
+			province_id = 419
+			province_id = 2205
+			province_id = 2202
+			province_id = 420
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+			shirvan_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+
+}
+
+emranos_georgia_leftseccolumn = {
+    slot = 2
+	generic = no
+	ai = no
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	conquer_shirvan = {
+	    icon = mission_unite_home_region 
+		required_missions = { 
+		conquer_dagestan 
+		conquer_armenia
+		}
+		position = 4
+		trigger = {
+			shirvan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 4305
+			province_id = 4299
+			province_id = 421
+			province_id = 424
+			province_id = 4340
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+			tabarestan_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+
+}
+
+
+emranos_georgia_midcolumn = {
+    slot = 3
+	generic = no
+	ai = no
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	geo_force_limit = {
+	    icon = mission_build_up_to_force_limit
+		required_missions = {  } #None
+		trigger = {
+			army_size_percentage = 0.75 #What you need to complete the mission, displayed for mission tooltip
+			manpower_percentage = 0.5
+		}
+		effect = { #This is what you get after you finished your mission.
+			add_country_modifier = {
+				name = "thriving_arms_industry"
+				duration = 9125 #25 years
+			}
+			circassia_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	conquer_circassia = {
+	    icon = mission_unite_home_region 
+		required_missions = { geo_force_limit }
+		trigger = {
+			circassia_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 2195
+			province_id = 463
+			province_id = 2197
+			province_id = 2201
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+			dagestan_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	conquer_dagestan = {
+	    icon = mission_unite_home_region 
+		required_missions = { conquer_circassia }
+		trigger = {
+			dagestan_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 4306
+			province_id = 425
+			province_id = 2198
+			province_id = 2208
+			province_id = 2199
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+			crimea_region = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	
+	
+}
+
+emranos_georgia_rightseccolumn = {
+    slot = 4
+	generic = no
+	ai = no
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+}
+
+emranos_georgia_rightcolumn = {
+    slot = 5
+	generic = no
+	ai = no
+	potential = {
+		tag = GEO
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	geo_churches_mission = {
+		icon = mission_land_of_churches
+		required_missions = {  }
+		provinces_to_highlight = {
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 10
+				OR = {
+					has_building = temple
+					has_building = cathedral
+				}
+			}
+		}
+		effect = {
+			add_patriarch_authority = 0.1
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+			add_adm_power = 100
+			if = {
+				limit = {
+					NOT = {
+						religion = orthodox
+					}
+				}
+				add_prestige = 10
+			}
+		}
+	}
+	
+	geo_patriarchate_mission = {
+		icon = mission_russian_patriarchatee
+		required_missions = { geo_churches_mission }
+		position = 2
+		provinces_to_highlight = {
+		}
+		trigger = {
+		    stability = 2
+			NOT = { 
+				151 = { 
+					owned_by = BYZ 
+				}
+			}
+			religion = orthodox
+			423 = {
+				owned_by = ROOT
+				has_state_patriach = yes
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "georgian_patriarchate"
+				duration = -1
+			}
+			add_prestige = 10
+			add_patriarch_authority = 0.25
+		}
+	}
+	
+	geo_build_workshops = {
+		icon = mission_early_game_buildings
+		required_missions = { } #
+		position = 3
+		trigger = {
+			workshop = 10
+		}
+		effect = {
+			add_dip_power = 100
+			add_country_modifier = {
+				name = "georgian_production"
+				duration = 9125
+			}
+		}
+	}
+	
+	geo_fortify = {
+		icon = fortress_switzerland
+		required_missions = { } #
+		position = 4
+		trigger = {
+		4301 = {
+			    OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+					}
+		}
+		2204 = {
+			    OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+					}
+		}
+		422 = {
+			    OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+					}
+		}
+		423 = {
+			    OR = {
+					has_building = fort_15th
+					has_building = fort_16th
+					has_building = fort_17th
+					has_building = fort_18th
+					}
+		}
+	    }
+		effect = {
+		423 = {
+			add_province_modifier = {
+				name = "georgian_forts"
+				duration = -1
+			}
+		}
+		422 = {
+			add_province_modifier = {
+				name = "georgian_forts"
+				duration = -1
+			}
+		}
+		2204 = {
+			add_province_modifier = {
+				name = "georgian_forts"
+				duration = -1
+			}
+		}
+		4301 = {
+			add_province_modifier = {
+				name = "georgian_forts"
+				duration = -1
+			}
+		}
+	    }
+	
+    }
+	
+
+}

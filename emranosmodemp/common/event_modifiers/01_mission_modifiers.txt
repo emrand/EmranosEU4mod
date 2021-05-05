@@ -4192,7 +4192,6 @@ butuan_manufactories = {
 }
 
 rzw_zambezi_trade {
-    colonists = 1
 	caravan_power = 0.25
 }
 
@@ -4202,7 +4201,7 @@ rzw_arms_industry = {
 }
 
 rzw_unite_africa = {
-    administrative_efficiency = 0.025
+    global_unrest = -2
 }
 
 rzw_kongo_coast = {
@@ -4231,4 +4230,21 @@ rzw_established_massapanegus = {
 rzw_cultural_dominance = {
 	prestige = 2
 	prestige_decay = -0.01
+}
+
+fortified_trabzon = {
+	local_defensiveness = 0.15
+}
+
+georgian_patriarchate = {
+    fort_maintenance_modifier = -0.1
+	global_tax_modifier = 0.1
+}
+
+georgian_production = {
+	production_efficiency = 0.1
+}
+
+georgian_forts = {
+	local_defensiveness = 0.15
 }
