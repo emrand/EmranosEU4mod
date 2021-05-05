@@ -1,0 +1,65 @@
+######################################## 
+# Flavor events for Butua
+# 
+# written by Emranos
+######################################## 
+
+
+namespace = flavor_rzw
+normal_or_historical_nations = yes
+
+#Emranos Event
+country_event = {
+	id = flavor_rzw.5100
+	title = "flavor_rzw.EVTNAME5100"
+	desc = "flavor_rzw.EVTDESC5100"
+	picture = ADVISOR_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = "flavor_rzw.EVTOPTOK"
+		define_advisor = {
+			type = natural_scientist
+			name = "Emranos"
+			culture = hebrew
+			skill = 3
+			cost_multiplier = 0.25
+		}
+	}
+}
+
+#Zambezi Expedition
+country_event = {
+	id = flavor_rzw.31
+	title = flavor_rzw.31.t
+	desc = flavor_rzw.31.d
+	picture = EXPLORERS_eventPicture
+	
+	fire_only_once = yes
+	
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_rzw.31.a #Let us cross the Zambezi!
+		ai_chance = { factor = 1 }
+		4106 = {
+			add_core = RZW
+			cede_province = RZW
+		}
+		every_province = {
+			limit = {
+				OR = {
+					province_id = 4108
+					province_id = 4095
+					province_id = 4107
+					province_id = 4094
+				}
+			}
+			add_permanent_claim = RZW
+		}
+		
+	}	
+}

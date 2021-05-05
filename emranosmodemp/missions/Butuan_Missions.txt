@@ -11,7 +11,6 @@ rzw_birth_of_an_empire = {
 	defeat_the_mutapan_empire = {
 	    icon = mission_conquer_50_development
 		required_missions = {  } #None
-		completed_by = 1453.5.30
 		trigger = {
 			owns = 1187
 			owns = 1191
@@ -24,20 +23,704 @@ rzw_birth_of_an_empire = {
 			NOT = { country_or_non_sovereign_subject_holds = ROOT }
 		}
 		effect = {
-			set_country_flag = relocated_capital_constantinople
-			set_global_flag = greek_need_restore_constantinople
 			add_stability = 1
 			add_core = 1187
 			add_core = 1191
 			add_core = 1190
 				1185 = {
-					add_base_tax = 3
+					add_base_tax = 1
 					add_base_production = 3
 					add_base_manpower = 3
 				}
+			shire_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
 			
 			set_government_rank = 3
 		}
 	}
 	
+	conquest_of_shire = {
+	    icon = mission_early_game_buildings
+		required_missions = { 
+		defeat_the_mutapan_empire
+        rzw_force_limit
+	    }
+		trigger = {
+			owns = 4040
+			owns = 4039
+			owns = 4038
+		}
+		provinces_to_highlight = {
+			province_id = 4040
+			province_id = 4039
+			province_id = 4038
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+            add_prestige = 25
+			east_africa_region = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	conquest_of_zanzibar = {
+	    icon = mission_golden_century
+		required_missions = { conquest_of_shire }
+		trigger = {
+			owns = 1186
+			owns = 1196
+			owns = 1202
+			owns = 1193
+			owns = 1201
+		}
+		provinces_to_highlight = {
+			province_id = 1186
+			province_id = 1196
+			province_id = 1193
+			province_id = 1202
+			province_id = 1201
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		    add_adm_power = 150
+			add_country_modifier = {
+				name = "ara_golden_age"
+				duration = 18250
+			}
+			add_treasury = 300
+		}
+	}
+	
+	butuan_renaissance_mission = {
+		icon = mission_early_modern_university
+		required_missions = {  } #None
+		position = 4
+		trigger = {
+			has_institution = renaissance
+			stability = 3
+			prestige = 25
+			NOT = { war_exhaustion = 1 }
+		}
+		effect = {
+			country_event = { id = flavor_rzw.5100 }
+			add_country_modifier = {
+				name = "butuan_renaissance"
+				duration = 7300
+			}
+			    add_mil_power = 100
+				add_dip_power = 100
+				add_adm_power = 100
+		}
+	}
+	
+	butuan_globaltrade_mission = {
+		icon = mission_rb_monopolize_the_channel
+		required_missions = { butuan_renaissance_mission }
+		position = 5
+		trigger = {
+			has_institution = global_trade
+			stability = 3
+			prestige = 25
+			NOT = { war_exhaustion = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "butuan_globaltrade"
+				duration = -1
+			}
+		}
+	}
+	
+	butuan_manufactories_mission = {
+		icon = mission_rb_prospect_for_coal
+		required_missions = { butuan_globaltrade_mission }
+		position = 6
+		trigger = {
+			has_institution = manufactories
+			stability = 3
+			prestige = 25
+			NOT = { war_exhaustion = 1 }
+		}
+		effect = {
+			add_country_modifier = {
+				name = "butuan_manufactories"
+				duration = -1
+			}
+		}
+	}
+	
 }
+	rzw_economic = {
+    slot = 5
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	
+	rzw_build_workshops = {
+		icon = mission_early_game_buildings
+		required_missions = { } #
+		trigger = {
+			workshop = 10
+		}
+		effect = {
+			add_dip_power = 75
+			add_country_modifier = {
+				name = "butuan_production"
+				duration = 9125
+			}
+		}
+	}
+	
+	rzw_build_manufactories = {
+		icon = mission_have_manufactories
+		required_missions = { rzw_build_workshops }
+		trigger = {
+			calc_true_if = {
+				desc = build_manufactories_mission_tooltip
+				all_owned_province = {
+					OR = {
+						has_building = mills
+						has_building = farm_estate
+						has_building = tradecompany
+						has_building = plantations
+						has_building = textile
+						has_building = weapons
+						has_building = wharf
+						has_building = furnace
+					}
+				}
+				amount = 20
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "butuan_industrialization"
+				duration = 9125
+			}
+			add_years_of_income = 2.0
+		}
+	}
+	
+	RZWafrican_wealth_mission = {
+		icon = mission_war_chest
+		position = 3
+		required_missions = { rzw_build_manufactories }
+		trigger = {
+			OR = {
+				gold = 5
+				AND = {
+					production_leader = {
+						trade_goods = ivory
+					}
+					ivory = 10
+				}
+				production_leader = {
+					trade_goods = coffee
+				}
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = "wealth_of_africa_modifier"
+				duration = -1
+			}
+		}
+	}
+}
+
+rzw_establish_army = {
+    slot = 2
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	rzw_force_limit = {
+	    icon = mission_build_up_to_force_limit
+		required_missions = {  } #None
+		trigger = {
+			army_size_percentage = 0.85 #What you need to complete the mission, displayed for mission tooltip
+			manpower_percentage = 0.5
+		}
+		effect = { #This is what you get after you finished your mission.
+			add_country_modifier = {
+				name = "rzw_arms_industry"
+				duration = 9125 #25 years
+			}
+		}
+	}
+	
+	rzw_zambezi_route = {
+		icon = mission_saharan_route
+		required_missions = {rzw_force_limit }
+		
+		provinces_to_highlight = {
+			OR = {
+				province_id = 1191
+				province_id = 1184
+			}
+		}
+		
+		trigger = {
+			1184 = {
+				is_strongest_trade_power = ROOT
+			}
+			if = {
+				limit = {
+					has_dlc = "Dharma"
+				}
+				1191 = {
+					OR = {
+						province_has_center_of_trade_of_level = 2
+						has_building = marketplace
+					}
+					owned_by = RZW
+				}
+			}
+			else = {
+				1191 = {
+					has_building = marketplace
+				}
+			}
+		}		
+		effect = {
+			if = {
+				limit = {
+					4106 = {
+						is_empty = yes
+						any_neighbor_province = {
+							owned_by = ROOT
+						}
+					}
+				}
+				country_event = { id = flavor_rzw.31 }
+			}
+			add_country_modifier = {
+				name = "rzw_zambezi_trade"
+				duration = -1
+			}
+		}
+	}
+	
+	conquest_of_chokwe = {
+	    icon = mission_assemble_an_army
+		required_missions = { 
+		rzw_zambezi_route
+	    }
+		trigger = {
+			owns = 4107
+			owns = 4095
+			owns = 4094
+		}
+		provinces_to_highlight = {
+			province_id = 4107
+			province_id = 4095
+			province_id = 4094
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+            add_prestige = 25
+			central_africa_region = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+	
+	conquest_of_uganda = {
+	    icon = mission_unite_home_region
+		required_missions = { 
+		conquest_of_zanzibar
+		conquest_of_chokwe
+	    }
+		
+		trigger = {
+			owns_core_province = 4064          #Buganda
+            owns = 4062
+			owns = 4065
+			owns = 4074
+			owns = 4066
+			owns = 4063
+			owns = 4067
+			owns = 4061
+			owns = 4068
+			owns = 4069
+			owns = 4071
+			owns = 4070
+			owns = 4072
+		}
+		
+		provinces_to_highlight = {
+			 province_id = 4064
+			 province_id = 4062
+			 province_id = 4065
+			 province_id = 4074
+			 province_id = 4066
+			 province_id = 4063
+			 province_id = 4067
+			 province_id = 4061
+			 province_id = 4068
+			 province_id = 4069
+			 province_id = 4071
+			 province_id = 4070
+			 province_id = 4072
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		
+            add_mil_power = 200
+			kongo_region = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			add_country_modifier = {
+				name = "rzw_unite_africa"
+				duration = -1
+			}
+			
+		}
+	}
+	
+	conquest_of_kongo = {
+	    icon = mission_invade_island
+		required_missions = { 
+		conquest_of_uganda
+	    }
+		trigger = {
+			owns = 1091
+			owns = 1166
+			owns = 4079
+		}
+		provinces_to_highlight = {
+			province_id = 1091
+			province_id = 1166
+			province_id = 4079
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+            add_dip_power = 200
+			
+			cameroon_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			benin_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+			add_country_modifier = {
+				name = "rzw_kongo_coast"
+				duration = -1
+			}
+			
+		}
+	}
+	
+	rzw_assemble_an_army = {
+		icon = mission_assemble_an_army
+		required_missions = { conquest_of_kongo }
+		trigger = { army_size = 100 }
+		effect = {
+			add_country_modifier = {
+				name = "rzw_army_enthusiasm"
+				duration = -1
+			}
+		}
+	}
+
+}
+
+rzw_develop_nation = {
+    slot = 3
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	emp_rzw_cultural_center = {
+		icon = develop_our_capital
+		required_missions = { }
+		provinces_to_highlight = {
+			owned_by = root
+			is_capital = yes
+			province_id = 1188
+			province_id = 1185
+			province_id = 1184
+			OR = {
+				NOT = { development = 15 }
+			}
+		}
+		trigger = {
+		    if = {
+			capital_scope = {
+				development = 15
+			    }
+		    }
+			
+			if = {
+			1188 = {
+				development = 15
+			    }
+		    }
+
+			if = {
+			1184 = {
+				development = 15
+			    }
+		    }
+
+		}
+		effect = {
+			capital_scope = {
+				if = {
+					limit = {
+						province_has_center_of_trade_of_level = 1
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+					add_center_of_trade_level = 1
+				}
+				else_if = {
+					limit = {
+						NOT = { province_has_center_of_trade_of_level = 1 }
+					}
+					center_of_trade = 1
+				}
+				else = {
+					add_base_tax = 1
+					add_base_production = 2
+					add_base_manpower = 1
+				}
+			}
+			1188 = {
+			    add_base_tax = 1
+				add_base_production = 2
+				add_base_manpower = 2
+				}
+			
+			1184 = {
+			    if = {
+					limit = {
+						province_has_center_of_trade_of_level = 1
+						NOT = { province_has_center_of_trade_of_level = 3 }
+					}
+					add_center_of_trade_level = 1
+				}
+				else_if = {
+					limit = {
+						NOT = { province_has_center_of_trade_of_level = 1 }
+					}
+					center_of_trade = 1
+				}
+				else = {
+					add_base_tax = 1
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+			}
+			
+		}
+	}
+	
+	emp_rzw_splendour = {
+		icon = regal_splendour
+		required_missions = { emp_rzw_cultural_center }
+		trigger = {
+			if = {
+				government_rank = 3
+			}
+			else = { total_development = 300 }
+			is_subject = no
+			else = {
+				prestige = 80
+			}
+			legitimacy_equivalent = 95
+			prestige = 50
+		}
+		effect = {
+			add_country_modifier = {
+				name = rzw_splendorous_butua
+				duration = 7300
+			}
+		}
+	}
+	
+	emp_rzw_massapanegus_mission = {
+		icon = mission_empire
+		required_missions = { emp_rzw_splendour }
+		provinces_to_highlight = {
+			OR = {
+				AND = {
+					owned_by = root
+					OR = {	
+						trade_goods = ivory
+					}
+					NOT = { has_building = tradecompany }
+				}
+				AND = {
+					ROOT = {
+						NOT = {
+							num_of_owned_provinces_with = {
+								value = 5
+								OR = {	
+									trade_goods = ivory
+								}
+							}
+						}
+					}
+					OR = {	
+						trade_goods = ivory
+					}
+					OR = {
+						owner = { is_subject_of = ROOT }
+						any_neighbor_province = {
+							owned_by = ROOT
+						}
+					}
+				}
+			}
+		}
+		trigger = {
+			num_of_owned_provinces_with = {
+				value = 5
+				has_building = tradecompany
+			}
+			trade_goods_produced_amount = {
+				trade_goods = ivory
+				amount = 15
+			}
+		}
+		effect = {
+			capital_scope = {
+				add_province_modifier = {
+					name = rzw_established_massapanegus
+					duration = -1
+				}
+				if = {
+					limit = {
+						NOT = { devastation = 1 }
+						NOT = { prosperity = 100 }
+					}
+					add_prosperity = 50
+				}
+				add_dip_power = 50
+				add_mil_power = 50
+				add_adm_power = 50
+			}
+		}
+	}
+
+
+}
+
+rzw_op_nation = {
+    slot = 4
+	generic = no
+	ai = yes
+	potential = {
+		tag = RZW
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	rzw_build_temples = {
+		icon = mission_mosque
+		required_missions = { } #NONE
+		trigger = {
+			temple = 10
+		}
+		effect = {
+			add_adm_power = 50
+			add_country_modifier = {
+				name = "building_spree"
+				duration = 9125
+			}
+		}
+	}
+	
+	emp_rzw_cultural_dominance = {
+		icon = mission_persian_soldiers
+		required_missions = { 
+		emp_rzw_massapanegus_mission
+        RZWafrican_wealth_mission }
+		position = 4
+		provinces_to_highlight = {
+			OR = {
+				region = east_africa_region
+				region = south_africa_region
+			}
+			NOT = { owned_by = ROOT }
+			OR = {
+				culture = shona
+				any_province = {
+					is_capital_of = root
+					NOT = { higher_development_than = prev }
+				}
+			}
+		}
+		trigger = {
+			primary_culture = shona
+			development_in_provinces = {
+				value = 500
+				culture = shona
+			}
+			1196 = {
+				is_strongest_trade_power = root
+				owned_by = root
+			}
+			1196 = {
+				culture = shona
+			}
+		}
+		effect = {
+			add_country_modifier = {
+				name = rzw_cultural_dominance
+				duration = -1
+			}
+		}
+	}
+	
+}
+	
+
+
+	
