@@ -11280,3 +11280,7 @@ eng_3131_henry = {
 scandinavian_unification = {
 	reduced_liberty_desire = 50
 }
+
+almanator_discipline = { 
+    discipline = 0.31
+}
