@@ -703,8 +703,8 @@ daimyo_ideas = {
 
 BAV_ideas = {
 	start = {
-		cavalry_power = 0.1
-		heir_chance = 0.5
+		infantry_power = 0.1
+		manpower_recovery_speed = 0.15
 	}
 	
 	bonus = {
@@ -718,12 +718,13 @@ BAV_ideas = {
 	
 	everlating_succeession = {
 		legitimacy = 1
+		prestige = 1
 	}
 	bavarian_purity_law = {
 		production_efficiency = 0.1
 	}
 	bavarian_state_orchestra = {
-		prestige = 1
+		global_unrest = -1
 	}
 	geistlicher_rat = {
 		global_heretic_missionary_strength = 0.03
