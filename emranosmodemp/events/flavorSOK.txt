@@ -1,0 +1,112 @@
+########################################
+# Events for Sokoto
+#
+# written by Henrik Lohmander
+########################################
+
+namespace = flavor_sok
+normal_or_historical_nations = yes
+
+#Usman dan Fodio
+country_event = {
+	id = flavor_sok.1
+	title = flavor_sok.1.t
+	desc = flavor_sok.1.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	fire_only_once = yes
+
+	trigger = {
+		owns = 1148 #Gobir
+		tag = SON
+		1148 = {
+		is_capital = yes
+		}
+	}
+	
+	mean_time_to_happen = {
+		months = 12
+	}
+	
+	option = {
+		name = flavor_sok.1.a	#Accept the invitation of dan Fodio
+		ai_chance = { factor = 1 }
+		trigger = {
+			owns = 1148
+			tag = SON
+			1148 = {
+			is_capital = yes
+			}
+		}
+		if = {
+			limit = {
+				not = { religion = sunni }
+			}
+			change_religion = sunni
+		}
+		add_stability = -2	#Begining to purge the aristocrats.
+		add_piety = 0.5
+		set_country_flag = sok_dan_fodio_happened
+	}
+}
+
+#The followers of Usman Dan Fodio
+province_event = {
+	id = flavor_sok.2
+	title = flavor_sok.2.t
+	desc = flavor_sok.2.d
+	picture = RELIGIOUS_TURMOIL_eventPicture
+
+	is_triggered_only = yes
+	
+	option = {
+		name = flavor_sok.2.a	#Accept the invitation of dan Fodio
+		custom_tooltip = flavor_sok.2.a.tt
+	}
+}
+
+
+country_event = {
+	id = flavor_sok.3
+	title = flavor_sok.3.t
+	desc = flavor_sok.3.d
+	
+	picture = {
+		picture = MUSLIM_SCHOLAR_WRITING_eventPicture
+	}
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    owns = 1148
+		1148 = {
+		is_capital = yes
+		}
+		OR = {
+			tag = SON
+			tag = SOK
+		}
+	}
+	
+	mean_time_to_happen = {
+		days = 60
+	}
+	
+	goto = institution_province
+
+    option = {
+	 name = flavor_sok.3.a
+	 if = {
+			limit = {
+				owns_core_province = 1148
+			}
+			1148 = {
+				add_institution_embracement = {
+				which = feudalism
+				value = 75
+			    }
+			}
+		}
+
+    }
+}

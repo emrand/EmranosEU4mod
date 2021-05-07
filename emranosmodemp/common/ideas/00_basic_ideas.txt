@@ -870,7 +870,7 @@ administrative_ideas = {
 		core_creation = -0.25
 	}
 	benefits_for_advisors = {
-		advisor_cost = -0.175
+		advisor_cost = -0.15
 	}
 	bookkeeping = {
 		interest = -0.5

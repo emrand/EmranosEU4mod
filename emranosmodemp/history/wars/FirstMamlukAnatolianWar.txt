@@ -1,0 +1,25 @@
+name = "First Mamluk-Anatolian War"
+war_goal = {
+	type = take_core
+	casus_belli = cb_core
+	province = 4298
+	province = 332
+	province = 2303
+}
+
+1440.10.10 = {
+	add_attacker = TUR
+	add_attacker = KAR
+	add_attacker = RAM
+	add_attacker = DUL
+	add_defender = MAM
+}
+
+1444.10.10 = {
+	rem_attacker = TUR
+	rem_attacker = KAR
+	rem_attacker = RAM
+	rem_attacker = DUL
+	rem_defender = MAM
+}
+
