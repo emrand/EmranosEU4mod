@@ -1,0 +1,220 @@
+emranos_jihad_leftcolumn = {
+    slot = 1
+	generic = no
+	ai = no
+	potential = {
+		OR = {
+			tag = SON
+			tag = SOK
+		}
+		NOT = { map_setup = map_setup_random }
+	}
+	has_country_shield = yes
+	
+	conquer_katsina = {
+	    icon = mission_conquer_50_development
+		position = 1
+		required_missions = {  } #NONE
+		trigger = {
+			owns = 1148
+			owns = 1149
+			owns = 2279
+		}
+		provinces_to_highlight = {
+			province_id = 1148
+			province_id = 1149
+			province_id = 2279
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+			add_stability = 1
+			add_core = 1148
+			add_core = 1149
+			add_core = 2279
+			1148 = {
+				move_capital_effect = yes
+				change_culture = songhai 
+				change_religion = ROOT
+				rename_capital = Gudu
+			}
+			if = {
+				1148 = {
+					add_base_tax = 1
+					add_base_production = 2
+					add_base_manpower = 2
+				}
+			}
+			
+		}
+	}
+	
+	declare_jihad = {
+	    icon = mission_mosque
+		required_missions = { conquer_katsina }
+		position = 2
+		trigger = {
+			capital_scope = {
+                development = 20				
+			}
+		}
+		provinces_to_highlight = {
+			owned_by = root
+			is_capital = yes
+			OR = {
+				NOT = { development = 20 }
+			}
+		}
+		effect = {		 
+			add_estate_loyalty = {
+				estate = estate_church
+				loyalty = 10
+			}
+			country_event = { id = flavor_sok.3 }
+			add_country_modifier = {
+				name = "sok_jihad"
+				duration = -1
+			}
+			azbin_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			east_azbin_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+			
+		}
+	}
+
+	conquer_air = {
+	    icon = mission_impaled_soldies
+		position = 3
+		required_missions = { declare_jihad }
+		trigger = {
+			east_azbin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			azbin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 2272
+			province_id = 2274
+			province_id = 2273
+			province_id = 2276
+			province_id = 1156
+			province_id = 2275
+			province_id = 2277
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 
+         if = {
+				limit = {
+					exists = TMB
+				}
+				add_casus_belli = {
+					target = TMB
+					type = cb_vassalize_mission
+				}
+			}
+			1132 = { 
+				add_permanent_claim = ROOT
+			}
+            2247 = { 
+				add_permanent_claim = ROOT
+			}
+			1129 = { 
+				add_permanent_claim = ROOT
+			}
+			1128 = { 
+				add_permanent_claim = ROOT
+			}
+			2260 = { 
+				add_permanent_claim = ROOT
+			}
+		}
+	}
+	
+	conquer_timbuktu = {
+	    icon = mission_arabian_fort
+		position = 4
+		required_missions = { conquer_air }
+		trigger = {
+			east_azbin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+			azbin_area = {
+				type = all
+				country_or_non_sovereign_subject_holds = ROOT
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 2260
+			province_id = 1128
+			province_id = 1132
+			province_id = 1129
+			province_id = 2247
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		
+		 massina_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		 manding_area = {
+			    limit = {
+					NOT = { is_permanent_claim = ROOT	}
+					NOT = { is_core = ROOT	}
+				}
+				add_permanent_claim = ROOT
+			}
+		}
+        
+	}
+	
+	isis_of_africa = {
+	    icon = mission_unite_home_region 
+		position = 5
+		required_missions = { conquer_timbuktu }
+		trigger = {
+			owns = 1124
+			NOT = {
+			exists = MAL
+			}
+		}
+		provinces_to_highlight = {
+			province_id = 1124
+			NOT = { country_or_non_sovereign_subject_holds = ROOT }
+		}
+		effect = {
+		 add_stability = 1
+		 set_government_rank = 3
+		 add_country_modifier = {
+				name = "sok_islamic_state"
+				duration = -1
+			}
+		 
+		}
+        
+	}
+}
+	
+	
+	
+	
