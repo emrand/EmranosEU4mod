@@ -6379,7 +6379,7 @@ JAJ_ideas = {
 
 JNP_ideas = {
 	start = {
-		infantry_cost = -0.1
+	    fire_damage = 0.1
 		diplomatic_upkeep = 1
 	}
 
@@ -6393,11 +6393,11 @@ JNP_ideas = {
 	}
 	free = yes		#will be added at load.
 	
-	jnp_purbias = {
-		fire_damage = 0.1
+	jnp_gunnigunni = {
+		core_creation = -0.10
 	}
-	shiraz_e_hind = {
-		global_institution_spread = 0.1
+	jnp_purbias = {
+		infantry_cost = -0.1
 	}
 	jnp_sants_and_sufis = {
 		religious_unity = 0.5

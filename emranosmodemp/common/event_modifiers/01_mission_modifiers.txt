@@ -4261,3 +4261,11 @@ sok_islamic_state = {
 	num_accepted_cultures = 2
 }
 
+mali_renaissance = {
+	technology_cost = -0.10
+	idea_cost = -0.10
+}
+
+mali_lesgo = {
+	global_trade_power = 0.20
+}

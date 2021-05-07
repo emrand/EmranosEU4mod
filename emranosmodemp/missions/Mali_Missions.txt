@@ -122,8 +122,8 @@ mal_birth_of_an_empire = {
 				add_permanent_claim = ROOT
 			}
 			add_country_modifier = {
-				name = "thriving_arms_industry"
-				duration = 18250 #50 years
+				name = "mali_lesgo"
+				duration = -1
 			}
 		}
 	}
@@ -221,14 +221,14 @@ mal_birth_of_an_empire = {
 			NOT = { war_exhaustion = 1 }
 		}
 		effect = {
-			country_event = { id = flavor_rzw.5100 }
+			country_event = { id = flavor_mal.3232 }
 			add_country_modifier = {
-				name = "butuan_renaissance"
+				name = "mali_renaissance"
 				duration = 7300
 			}
-			    add_mil_power = 100
-				add_dip_power = 100
-				add_adm_power = 100
+			    add_mil_power = 50
+				add_dip_power = 50
+				add_adm_power = 50
 		}
 	}
 	
@@ -269,7 +269,8 @@ mal_birth_of_an_empire = {
 	}
 	
 }
-	mal_economic = {
+
+mal_economic = {
     slot = 5
 	generic = no
 	ai = yes
@@ -349,5 +350,30 @@ mal_birth_of_an_empire = {
 				duration = -1
 			}
 		}
+	}
+	
+	develop_joma = {
+	    icon = mission_conquer_50_development
+		required_missions = {  } #NONE
+		position = 4
+		trigger = {
+			capital_scope = {
+                development = 20				
+			}
+		}
+		provinces_to_highlight = {
+			owned_by = root
+			is_capital = yes
+			OR = {
+				NOT = { development = 20 }
+			}
+		}
+		effect = {	
+		
+			country_event = { id = flavor_mal.3434 }
+			
+		}
+			
+		
 	}
 }

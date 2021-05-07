@@ -596,7 +596,7 @@ age_of_absolutism = {
 				tag = NED
 			}
 			modifier = {
-				yearly_corruption = -0.2
+				global_trade_power = 0.33
 			}
 			ai_will_do = {
 				factor = 100
@@ -604,7 +604,10 @@ age_of_absolutism = {
 		}	
 		ab_sweden_manpower = {
 			allow = {
-				tag = SWE
+				OR = {
+			      tag = SWE
+			      tag = SCA
+		        }
 			}
 			modifier = {
 				manpower_recovery_speed = 0.35
@@ -622,7 +625,7 @@ age_of_absolutism = {
 				}
 			}
 			modifier = {
-				amount_of_banners = 0.5
+				discipline = 0.075
 			}
 			ai_will_do = {
 				factor = 100
