@@ -793,3 +793,41 @@ country_event = {
 		}
 	}
 }
+
+country_event = {
+id = flavor_nap.3131
+title = flavor_nap.3131.t
+desc = flavor_nap.3131.d
+
+	picture = LIBERUM_VETO_eventPicture
+	
+	fire_only_once = yes
+
+	trigger = {
+		tag = NAP
+        NAP = {
+        ai = yes
+        }	    
+	}
+	
+	mean_time_to_happen {
+	    days = 60
+	}
+	
+	option = {
+		name = flavor_nap.3131.a
+		define_heir = {
+			DIP = 2
+			ADM = 2
+			MIL = 2
+			max_random_adm = 4
+			max_random_dip = 5
+			max_random_mil = 4
+			claim = 100
+			culture = neapolitan
+		}
+		ai_chance = {
+			factor = 1
+		}
+	}
+}

@@ -151,11 +151,11 @@ emranos_jihad_leftcolumn = {
 		position = 4
 		required_missions = { conquer_air }
 		trigger = {
-			east_azbin_area = {
+			western_sahara_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}
-			azbin_area = {
+			niger_bend_area = {
 				type = all
 				country_or_non_sovereign_subject_holds = ROOT
 			}

@@ -604,10 +604,10 @@ age_of_absolutism = {
 		}	
 		ab_sweden_manpower = {
 			allow = {
-				OR = {
-			      tag = SWE
-			      tag = SCA
-		        }
+			   OR = {
+				 tag = SWE
+				 tag = SCA
+				}
 			}
 			modifier = {
 				manpower_recovery_speed = 0.35
@@ -625,7 +625,7 @@ age_of_absolutism = {
 				}
 			}
 			modifier = {
-				discipline = 0.075
+				amount_of_banners = 0.5
 			}
 			ai_will_do = {
 				factor = 100
