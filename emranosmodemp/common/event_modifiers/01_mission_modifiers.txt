@@ -4193,6 +4193,7 @@ butuan_manufactories = {
 
 rzw_zambezi_trade {
 	caravan_power = 0.25
+	colonists = 1
 }
 
 rzw_arms_industry = {
@@ -4267,5 +4268,14 @@ mali_renaissance = {
 }
 
 mali_lesgo = {
-	global_trade_power = 0.20
+	global_trade_power = 0.10
+}
+
+mali_gt = {
+    global_trade_power = 0.10
+}
+
+mali_manufactories = {
+    global_trade_goods_size_modifier = 0.1
+	inflation_reduction = 0.1
 }

@@ -1106,3 +1106,46 @@ country_event = {
 		finish_council = yes
 	}
 }
+
+country_event = {
+	id = flavor_pap.3131
+	title = "flavor_ara.EVTNAME9"
+	desc = "flavor_ara.EVTDESC9"
+	picture = DIPLOMACY_eventPicture
+	
+	fire_only_once = yes
+	
+	trigger = {
+	    PAP = {
+	    ai = no
+		}
+		NAP = {
+		ai = yes
+		}	
+	}
+	mean_time_to_happen = {
+		months = 300
+	}
+	option = {
+		name = "flavor_ara.EVTOPTB9"
+		trigger = {
+			OR = {
+				FRA = {
+					has_country_flag = claimed_naples
+				}
+				ai = no
+			}
+		}
+		add_casus_belli = {
+			type = cb_vassalize_mission
+			months = 600
+			target = NAP
+		}
+		NAP = {
+			add_opinion = {
+				who = PAP
+				modifier = opinion_interfering_pope
+			}
+		}
+	}
+}
