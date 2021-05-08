@@ -404,7 +404,7 @@ NED_ideas = {
 		tolerance_heretic = 3
 	}
 	army_sappers = {
-		siege_ability = 0.10
+		artillery_power = 0.05
 	}
 	platoon_fire = {
 		fire_damage = 0.1
@@ -931,7 +931,7 @@ VRN_ideas = {
 
 VEN_ideas = {
 	start = {
-		naval_morale = 0.15
+		naval_morale = 0.10
 		global_trade_power = 0.15
 	}
 	
@@ -945,8 +945,8 @@ VEN_ideas = {
 	free = yes		#will be added at load.
 	
 	venetian_arsenal = {
-		naval_forcelimit_modifier = 0.25
-		galley_cost = -0.20
+		naval_forcelimit_modifier = 0.20
+		galley_cost = -0.10
 	}
 	ven_army = {
 		land_morale = 0.10
@@ -959,7 +959,6 @@ VEN_ideas = {
 		development_cost = -0.1
 	}
 	conscription = {
-		naval_maintenance_modifier = -0.2
 		global_sailors_modifier = 0.20
 	}
 	defend_the_law = {
@@ -967,7 +966,7 @@ VEN_ideas = {
 		justify_trade_conflict_cost = -0.15
 	}
 	provveditori_ai_beni_inculti = {
-		infantry_power = 0.15
+		infantry_power = 0.10
 	}
 }
 

@@ -10,7 +10,7 @@ mal_birth_of_an_empire = {
 	
 	defeat_the_macinan_empire = {
 	    icon = mission_conquer_50_development
-		required_missions = { mal_birth_of_an_empire }
+		required_missions = {  }
 		trigger = {
 			owns = 2245
 			owns = 2243
@@ -244,7 +244,7 @@ mal_birth_of_an_empire = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = "butuan_globaltrade"
+				name = "mali_gt"
 				duration = -1
 			}
 		}
@@ -262,7 +262,7 @@ mal_birth_of_an_empire = {
 		}
 		effect = {
 			add_country_modifier = {
-				name = "butuan_manufactories"
+				name = "mali_manufactories"
 				duration = -1
 			}
 		}
@@ -283,7 +283,7 @@ mal_economic = {
 	
 	mal_build_workshops = {
 		icon = mission_early_game_buildings
-		required_missions = { } #
+		required_missions = {  } #
 		trigger = {
 			workshop = 10
 		}
