@@ -529,7 +529,7 @@ TUR_ideas = {
 		trade_efficiency = 0.10
 	}
 	imperial_school_of_naval_engineering = {
-		galley_power = 0.05
+		global_ship_cost = -0.1
 	}
 }
 
@@ -931,12 +931,12 @@ VRN_ideas = {
 
 VEN_ideas = {
 	start = {
-		naval_morale = 0.10
-		global_trade_power = 0.15
+		global_sailors_modifier = 0.20
+		global_trade_power = 0.1
 	}
 	
 	bonus = {
-		galley_power = 0.20
+		galley_power = 0.25
 	}
 	
 	trigger = {
@@ -945,28 +945,29 @@ VEN_ideas = {
 	free = yes		#will be added at load.
 	
 	venetian_arsenal = {
-		naval_forcelimit_modifier = 0.20
-		galley_cost = -0.10
+		naval_forcelimit_modifier = 0.25
+		galley_cost = -0.20
 	}
-	ven_army = {
-		land_morale = 0.10
+	printing_industry = {
+		diplomats = 1
 	}
 	stato_da_mar = {
 		trade_efficiency = 0.10
 	}
 	state_inquisition = {
-		global_institution_spread = 0.1
-		development_cost = -0.1
+		global_spy_defence = 0.3
 	}
 	conscription = {
-		global_sailors_modifier = 0.20
+		naval_maintenance_modifier = -0.2
+		sailor_maintenance_modifer = -0.05
 	}
 	defend_the_law = {
-		stability_cost_modifier = -0.15
-		justify_trade_conflict_cost = -0.15
+		stability_cost_modifier = -0.1
+		justify_trade_conflict_cost = -0.1
 	}
 	provveditori_ai_beni_inculti = {
-		infantry_power = 0.10
+		land_attrition = -0.10
+		naval_attrition = -0.10
 	}
 }
 
@@ -1145,7 +1146,7 @@ HAB_ideas = {
 	}
 	
 	bonus = {
-		global_trade_goods_size_modifier = 0.1
+		heir_chance = 0.50
 	}
 	
 	trigger = {
@@ -1165,7 +1166,7 @@ HAB_ideas = {
 	}
 	military_border = {
 		global_garrison_growth = 0.20
-		defensiveness = 0.15
+		fort_maintenance_modifier = -0.10
 	}
 	fugger_banks = {
 		inflation_reduction = 0.05
@@ -1173,14 +1174,12 @@ HAB_ideas = {
 	}
 	habsburg_dominance = {
 		diplomatic_reputation = 2
-		diplomatic_upkeep = 1
 	}
 	edict_of_restitution = {
 		global_missionary_strength = 0.02
 	}
 	austrian_court = {
-		mercenary_discipline = 0.05
-		mercenary_manpower = 0.33
+        diplomatic_upkeep = 1
 	}
 	hofkriegsrat = {
 		reinforce_speed = 0.3
@@ -1434,7 +1433,7 @@ JAP_ideas = {
 	}
 	
 	bonus = {
-		infantry_power = 0.15
+		global_tariffs = 0.10
 	}
 	
 	trigger = {
@@ -1781,7 +1780,6 @@ MLO_ideas = {
 		global_trade_power = 0.1
 	}
 	rulership_of_enlightened_principals = {
-		land_morale = 0.05
 		fire_damage_received = -0.05
 	}
 }
@@ -4025,12 +4023,12 @@ TRE_ideas = {
 
 GEO_ideas = {
 	start = {
-		defensiveness = 0.20
-		infantry_power = 0.15
+		defensiveness = 0.25
+		infantry_power = 0.1
 	}
 	
 	bonus = {
-		tolerance_own = 3
+		infantry_cost = -0.2
 	}
 	
 	trigger = {
@@ -4043,28 +4041,25 @@ GEO_ideas = {
 	
 	bagrationi_dynasty = {
 		heir_chance = 0.5
-		legitimacy = 1.0
+		legitimacy = 0.5
 	}
 	georgian_isolation = {
-		improve_relation_modifier = 0.33
-		diplomatic_reputation = 2
+		improve_relation_modifier = 0.3
 	}
 	geo_legacy_of_saint_nino = {
-		land_morale = 0.15
+		tolerance_own = 2
 	}
 	restoration_of_fortresses_and_churches = {
-		build_cost = -0.15
+		build_cost = -0.1
 	}
 	sadrosho_districts = {
-		manpower_recovery_speed = 0.15
-		global_manpower_modifier = 0.20
+		manpower_recovery_speed = 0.2
 	}
 	geo_dasturlamali = {
-		discipline = 0.05
-		reinforce_speed = 0.15
+		war_exhaustion = -0.02
 	}
 	georgian_embassies = {
-		diplomatic_upkeep = 1
+		diplomatic_reputation = 1
 	}
 }
 
