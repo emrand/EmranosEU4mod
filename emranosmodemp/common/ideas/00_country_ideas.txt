@@ -1782,7 +1782,8 @@ MLO_ideas = {
 		global_trade_power = 0.1
 	}
 	rulership_of_enlightened_principals = {
-		stability_cost_modifier = -0.1
+		land_morale = 0.05
+		fire_damage_received = -0.05
 	}
 }
 
@@ -2076,7 +2077,7 @@ ITA_ideas = {
 	}
 	
 	bonus = {
-		defensiveness = 0.20
+		discipline = 0.05
 	}
 	
 	trigger = {
