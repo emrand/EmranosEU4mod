@@ -82,6 +82,9 @@ country_event = {
 		1148 = {
 		is_capital = yes
 		}
+		capital_scope = {
+                development = 20				
+			}
 		OR = {
 			tag = SON
 			tag = SOK
@@ -89,7 +92,7 @@ country_event = {
 	}
 	
 	mean_time_to_happen = {
-		days = 60
+		months = 150
 	}
 	
 	goto = institution_province
