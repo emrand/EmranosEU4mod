@@ -365,7 +365,36 @@ giftaction = {
 		potential = {
 		}
 		allow = {
-			FROM = { is_at_war = no }
+		    AND = {
+			    OR = {
+			        FROM = { is_at_war = no }
+			            AND = {
+			                FROM = { is_at_war = yes }
+			                ROOT = { is_at_war = yes }
+		            }
+				}
+			}
+			
+		}
+	}
+}
+
+takeondebt = {
+    condition = {
+		tooltip = EMRANOSINVALID
+		potential = {
+		}
+		allow = {
+		    AND = {
+			    OR = {
+			        FROM = { is_at_war = no }
+			            AND = {
+			                FROM = { is_at_war = yes }
+			                ROOT = { is_at_war = yes }
+		            }
+				}
+			}
+			
 		}
 	}
 }
