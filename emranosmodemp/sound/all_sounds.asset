@@ -314,13 +314,13 @@ sound = {
 }
 sound = {
 	name = declarewar
-	#file = "old/declarewar.wav"
-	file = "declare_war_on_other.wav"
+	#file = "bagirtti.wav"
+	file = "bagirtti.wav"
 }
 sound = {
 	name = declarewar_onus
-	#file = "trollge.wav"
-	file = "trollge.wav"
+	#file = "bagirtti.wav"
+	file = "bagirtti.wav"
 }
 sound = {
 	name = macro_build
